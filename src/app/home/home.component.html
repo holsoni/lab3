@@ -1,0 +1,115 @@
+  <form fxFlexOffset="5"   [formGroup]="profileFbForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header fxLayoutAlign="space-around">
+        <mat-card-title >User Form</mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout='column' >
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput required type="text" formControlName="firstName">
+          <mat-error *ngIf="profileFbForm.get('firstName')?.invalid && profileFbForm.get('firstName')?.touched">
+            Name required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput required type="text" formControlName="lastName" (change)="checkProfileExistence()">
+          <mat-error *ngIf="profileFbForm.get('lastName')?.invalid && profileFbForm.get('lastName')?.touched">
+            Last Name required.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="select-area">
+          <mat-label>Type</mat-label>
+          <mat-select formControlName="type">
+            <mat-option value="value1">Value1</mat-option>
+            <mat-option value="value2" >Value2</mat-option>
+            <mat-option value="value3">Value3</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput required type="text" formControlName="email">
+          <mat-error *ngIf="profileFbForm.get('email')?.invalid && profileFbForm.get('email')?.touched">
+            Email required -> aaaa@aaaa.com.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput required type="password" formControlName="password">
+          <mat-error *ngIf="profileFbForm.get('password')?.invalid && profileFbForm.get('password')?.touched
+    && profileFbForm.get('password')?.dirty">
+            Password required. Include small and capital letters, numbers & special symbols.
+          </mat-error>
+        </mat-form-field>
+
+        <div *ngIf="!profileExisting" style="margin-top: 15px;">
+          <mat-form-field >
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirmedPassword">
+            <mat-error *ngIf="profileFbForm.errors?.['passwordNotConfirmed'] && profileFbForm.get('confirmedPassword')?.touched">
+              Repeat your password!
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="center center" formArrayName="subjects" class="subjects" >
+          <div class="subject-buttons" >
+
+            <button mat-button color="red" type="button" (click)="addSubject()">Add</button>
+            <mat-label>Subjects</mat-label>
+            <button mat-button color="warn" type="button" (click)="removeAllSubjects()">Clear</button>
+          </div>
+          <ng-container *ngFor="let subject of subjects.controls; let i = index">
+            <div >
+              <mat-form-field >
+                <input matInput type="text" id="subj-{{i}}" [formControlName]="i" placeholder="Subject {{i + 1}}">
+              </mat-form-field>
+              <button mat-mini-fab matTooltip="Primary" color="#647556FF" (click)="removeSubject(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </ng-container>
+        </div>
+
+
+        <div>
+          <mat-form-field appearance="outline" >
+            <input matInput id="description" type="text" formControlName="description">
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row"  fxLayoutAlign="space-between center" >
+          <mat-checkbox id="male" (change)="onCheckboxChange($event)">
+            Male
+          </mat-checkbox>
+          <mat-label>Gender:</mat-label>
+
+          <mat-checkbox id="female" (change)="onCheckboxChange($event)">
+            Female
+          </mat-checkbox>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input matInput id="phone" required type="text" formControlName="phone">
+            <mat-error *ngIf="profileFbForm.get('phone')?.invalid && profileFbForm.get('phone')?.touched">
+              Phone required -> +380995678278.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div [ngSwitch]="profileExisting" fxLayoutAlign="center" >
+          <button mat-raised-button *ngSwitchCase="false" color="primary" [disabled]="!profileFbForm.valid" type="submit">Submit</button>
+          <button mat-raised-button *ngSwitchCase="true" color="primary" [disabled]="!profileFbForm.valid" type="submit">Sign in</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+
+
+
+
+

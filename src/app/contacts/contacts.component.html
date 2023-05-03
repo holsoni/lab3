@@ -1,0 +1,26 @@
+<mat-card class="user-card">
+  <mat-card-header>
+    <mat-card-title>Name of Person</mat-card-title>
+    <mat-card-subtitle>{{ user.name }} {{ user.lastname }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content fxLayout="column space-around">
+    <mat-list>
+      <mat-list-item>
+        <div matLine>Date of Birth</div>
+        <p matLine>{{ user.dateOfBirth | date:'dd.MM.yyyy' }}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <div matLine>Salary</div>
+        <p matLine>{{ user.salary | currency:'EUR' }}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <div matLine>Work Hours</div>
+        <p matLine>{{ user.workingHours | workingHours }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+
+
+

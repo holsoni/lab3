@@ -1,0 +1,25 @@
+<mat-card class="record-card" fxFlexOffset="10">
+  <mat-card-header>
+    <mat-card-title>{{ profile.firstName }} {{ profile.lastName }}</mat-card-title>
+
+  </mat-card-header>
+  <mat-card-content>
+    <p>Email: {{ profile.email }}</p>
+    <p>Type: {{ profile.type }}</p>
+    <p>Subjects: {{ profile.subjects.join(', ') }}</p>
+    <p>Description: {{ profile.description }}</p>
+    <p>Sex: {{ profile.sex }}</p>
+    <p>Phone: {{ profile.phone }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" routerLink="/userInfo/update/{{ profile.id }}">
+      Edit
+    </button>
+    <button mat-raised-button color="warn" (click)="deleteRecord(profile.id)">
+      Delete
+    </button>
+  </mat-card-actions>
+</mat-card>
+<div>
+  ldkflkadvfm
+</div>

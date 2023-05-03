@@ -1,0 +1,15 @@
+<nav class="left-nav" >
+  <p fxHide.lt-sm="true"> MENU </p>
+  <ul class="nav-list" fxLayout.lt-sm = "row" fxFlex.lt-sm="100"
+      fxLayoutAlign.lt-sm="center center">
+    <li><a routerLink="/home" routerLinkActive="active" >Home</a></li>
+    <li><a routerLink="/men" routerLinkActive="active" >Men</a></li>
+    <li><a routerLink="/women" routerLinkActive="active" >Women</a></li>
+    <li><a routerLink="/children" routerLinkActive="active" >Children</a></li>
+    <li><a [routerLink]="['/contacts']" routerLinkActive="active" >Contacts</a></li>
+    <li><a [routerLink]="['/userInfo/list']" routerLinkActive="active" >User Info</a></li>
+   <!-- <li *ngFor="let item of menu" >
+      <a (click)="menuClick(item.label)" [ngClass]="{'active': item.active}">{{item.label}}</a>
+    </li>-->
+  </ul>
+</nav>

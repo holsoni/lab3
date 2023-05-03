@@ -1,0 +1,25 @@
+
+<div class="data">
+  <p>Blogs works!</p>
+  <ul>
+    <li>
+      <h3>Name of Person</h3>
+      <p>{{ user.name }} {{ user.lastname }}</p>
+    </li>
+    <li>
+      <h3>Date of Birth</h3>
+      <p>{{ user.dateOfBirth | date:'dd.mm.yyyy' }}</p>
+    </li>
+    <li>
+      <h3>Salary</h3>
+      <p>{{ user.salary | currency:'EUR' }}</p>
+    </li>
+    <li>
+      <h3>Work Hours</h3>
+      <p>{{ user.workingHours | workingHours }}</p>
+    </li>
+  </ul>
+</div>
+
+
+

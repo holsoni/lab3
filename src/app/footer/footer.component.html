@@ -1,0 +1,17 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+        <p>&copy; 2023 ExampleShop. All rights reserved.</p>
+        <ul  class="footer-menu">
+          <li><a routerLink="/home" routerLinkActive="active" >Home</a></li>
+          <li><a routerLink="/men" routerLinkActive="active" >Men</a></li>
+          <li><a routerLink="/women" routerLinkActive="active" >Women</a></li>
+          <li><a routerLink="/children" routerLinkActive="active" >Children</a></li>
+          <li><a [routerLink]="['/contacts',1]" routerLinkActive="active" >Contacts</a></li>
+         <!-- <li  *ngFor="let item of menu">
+            <a href="#" [ngClass]="{'active': item.active}">{{item.label}}</a></li>
+        -->
+        </ul>
+    </div>
+  </div>
+</footer>

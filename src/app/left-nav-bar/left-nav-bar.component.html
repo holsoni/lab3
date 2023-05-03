@@ -1,0 +1,13 @@
+<nav class="left-nav">
+  <p> MENU </p>
+  <ul class="nav-list">
+    <li><a routerLink="/home" routerLinkActive="active" >Home</a></li>
+    <li><a routerLink="/men" routerLinkActive="active" >Men</a></li>
+    <li><a routerLink="/women" routerLinkActive="active" >Women</a></li>
+    <li><a routerLink="/children" routerLinkActive="active" >Children</a></li>
+    <li><a [routerLink]="['/contacts']" routerLinkActive="active" >Contacts</a></li>
+   <!-- <li *ngFor="let item of menu" >
+      <a (click)="menuClick(item.label)" [ngClass]="{'active': item.active}">{{item.label}}</a>
+    </li>-->
+  </ul>
+</nav>

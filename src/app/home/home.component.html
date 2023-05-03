@@ -1,0 +1,20 @@
+<table class="data">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Date of Birth</th>
+    <th>Salary</th>
+    <th>Working Hours</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let person of users">
+    <td>{{ person.name }} {{ person.lastname }}</td>
+    <td>{{ person.dateOfBirth  }}</td>
+    <td>{{ person.salary }}</td>
+    <td>{{ person.workingHours }}</td>
+    <td><a [routerLink]="['/contacts', person.id]">Details</a></td>
+  </tr>
+  </tbody>
+</table>
